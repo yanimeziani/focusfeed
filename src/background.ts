@@ -78,6 +78,11 @@ chrome.runtime.onMessage.addListener(
       getStatus().then(sendResponse);
       return true;
     }
+    if (msg.type === "OPEN_TRIAGE") {
+      chrome.tabs.create({ url: chrome.runtime.getURL("triage.html") });
+      sendResponse({ ok: true });
+      return true;
+    }
     return false;
   }
 );

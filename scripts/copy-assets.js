@@ -10,8 +10,10 @@ const files = [
   "manifest.json",
   "popup.html",
   "options.html",
+  "triage.html",
   "popup.css",
   "options.css",
+  "triage.css",
 ];
 for (const f of files) {
   const src = join(root, f);

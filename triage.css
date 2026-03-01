@@ -1,0 +1,210 @@
+/* FocusFeed — Psychological Triage (frontier step form) */
+
+:root {
+  --triage-bg: #f0fdfa;
+  --triage-panel: #fff;
+  --triage-primary: #0f766e;
+  --triage-primary-hover: #0d9488;
+  --triage-border: #99f6e4;
+  --triage-text: #134e4a;
+  --triage-muted: #5eead4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  color: var(--triage-text);
+  background: var(--triage-bg);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.triage {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.triage-header {
+  margin-bottom: 28px;
+}
+
+.triage-header h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--triage-primary);
+}
+
+.triage-tagline {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: #0d9488;
+}
+
+.triage-progress {
+  height: 6px;
+  background: var(--triage-border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.triage-progress-bar {
+  display: block;
+  height: 100%;
+  background: var(--triage-primary);
+  border-radius: 3px;
+  transition: width 0.25s ease;
+}
+
+.triage-step-indicator {
+  margin: 0;
+  font-size: 13px;
+  color: #0d9488;
+  font-weight: 500;
+}
+
+.triage-main {
+  flex: 1;
+}
+
+.triage-step {
+  animation: fade 0.2s ease;
+}
+
+.triage-step.hidden {
+  display: none !important;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.triage-step h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--triage-text);
+}
+
+.triage-hint {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #0d9488;
+}
+
+.triage-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.triage-option {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--triage-panel);
+  border: 2px solid var(--triage-border);
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.triage-option:hover {
+  border-color: var(--triage-primary);
+  background: #f0fdfa;
+}
+
+.triage-option input {
+  margin: 0 12px 0 0;
+  accent-color: var(--triage-primary);
+}
+
+.triage-option:has(input:checked) {
+  border-color: var(--triage-primary);
+  background: #ccfbf1;
+}
+
+.triage-summary {
+  margin: 0 0 16px;
+  font-size: 15px;
+  color: var(--triage-text);
+}
+
+.triage-disclaimer {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: #0d9488;
+}
+
+.triage-resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.triage-link {
+  color: var(--triage-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.triage-link:hover {
+  text-decoration: underline;
+}
+
+.triage-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--triage-border);
+}
+
+.triage-btn {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s;
+}
+
+.triage-btn.primary {
+  background: var(--triage-primary);
+  color: #fff;
+  margin-left: auto;
+}
+
+.triage-btn.primary:hover {
+  background: var(--triage-primary-hover);
+}
+
+.triage-btn.secondary {
+  background: transparent;
+  color: var(--triage-primary);
+  border: 2px solid var(--triage-primary);
+}
+
+.triage-btn.secondary:hover {
+  background: #ccfbf1;
+}
+
+.triage-btn.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}

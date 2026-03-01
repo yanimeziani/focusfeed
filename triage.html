@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FocusFeed — Psychological Triage</title>
+  <link rel="stylesheet" href="triage.css" />
+</head>
+<body>
+  <div class="triage">
+    <header class="triage-header">
+      <h1>Psychological Triage</h1>
+      <p class="triage-tagline">A brief check-in. Not a substitute for professional care.</p>
+      <div class="triage-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+        <span class="triage-progress-bar" id="progress-bar"></span>
+      </div>
+      <p class="triage-step-indicator" id="step-indicator">Step 1 of 4</p>
+    </header>
+
+    <main class="triage-main">
+      <!-- Step 1: How are you? -->
+      <section class="triage-step" id="step-1" data-step="1">
+        <h2>How are you feeling right now?</h2>
+        <p class="triage-hint">Choose the option that best fits.</p>
+        <div class="triage-options" role="radiogroup" aria-label="Current mood">
+          <label class="triage-option"><input type="radio" name="mood" value="calm" /> Calm and steady</label>
+          <label class="triage-option"><input type="radio" name="mood" value="ok" /> Okay, a bit tired</label>
+          <label class="triage-option"><input type="radio" name="mood" value="stressed" /> Stressed or anxious</label>
+          <label class="triage-option"><input type="radio" name="mood" value="low" /> Low or down</label>
+          <label class="triage-option"><input type="radio" name="mood" value="overwhelmed" /> Overwhelmed</label>
+        </div>
+      </section>
+
+      <!-- Step 2: Energy / engagement -->
+      <section class="triage-step hidden" id="step-2" data-step="2">
+        <h2>Over the past few days, how has your energy been?</h2>
+        <div class="triage-options" role="radiogroup" aria-label="Energy level">
+          <label class="triage-option"><input type="radio" name="energy" value="good" /> Good, normal</label>
+          <label class="triage-option"><input type="radio" name="energy" value="low" /> Lower than usual</label>
+          <label class="triage-option"><input type="radio" name="energy" value="very-low" /> Very low</label>
+          <label class="triage-option"><input type="radio" name="energy" value="fluctuating" /> Up and down</label>
+        </div>
+      </section>
+
+      <!-- Step 3: Sleep / rest -->
+      <section class="triage-step hidden" id="step-3" data-step="3">
+        <h2>How has sleep or rest been?</h2>
+        <div class="triage-options" role="radiogroup" aria-label="Sleep and rest">
+          <label class="triage-option"><input type="radio" name="sleep" value="rested" /> Rested enough</label>
+          <label class="triage-option"><input type="radio" name="sleep" value="some-trouble" /> Some trouble sleeping</label>
+          <label class="triage-option"><input type="radio" name="sleep" value="poor" /> Poor or broken sleep</label>
+          <label class="triage-option"><input type="radio" name="sleep" value="avoiding" /> Avoiding rest / can’t switch off</label>
+        </div>
+      </section>
+
+      <!-- Step 4: Summary + resources -->
+      <section class="triage-step hidden" id="step-4" data-step="4">
+        <h2>You’re done</h2>
+        <p class="triage-summary" id="triage-summary">Thank you for checking in.</p>
+        <p class="triage-disclaimer">This is a brief triage, not a diagnosis. If you’re struggling, consider reaching out to a professional or a crisis line.</p>
+        <div class="triage-resources">
+          <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer" class="triage-link">Find a helpline (global)</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="triage-footer">
+      <button type="button" class="triage-btn secondary hidden" id="btn-back" aria-label="Previous step">Back</button>
+      <button type="button" class="triage-btn primary" id="btn-next" aria-label="Next step">Next</button>
+    </footer>
+  </div>
+  <script type="module" src="triage.js"></script>
+</body>
+</html>

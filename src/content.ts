@@ -59,9 +59,13 @@ function showOverlay(result: {
       <p class="focusfeed-summary">${escapeHtml(result.summary || "No summary.")}</p>
       ${result.flags.length ? `<ul class="focusfeed-flags">${result.flags.map((f) => `<li>${escapeHtml(f)}</li>`).join("")}</ul>` : ""}
       <div class="focusfeed-meta">Model: ${escapeHtml(result.model)} · Tokens: ${result.tokensUsed}</div>
+      <button type="button" class="focusfeed-triage-link">Take psychological triage test →</button>
     </div>
   `;
   el.querySelector(".focusfeed-close")?.addEventListener("click", () => el.remove());
+  el.querySelector(".focusfeed-triage-link")?.addEventListener("click", () => {
+    chrome.runtime.sendMessage({ type: "OPEN_TRIAGE" });
+  });
   document.body.appendChild(el);
 }
 
@@ -123,12 +127,12 @@ function injectToolbarButton() {
   document.body.appendChild(btn);
 }
 
-function init() {
+function initContent() {
   injectToolbarButton();
 }
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
+  document.addEventListener("DOMContentLoaded", initContent);
 } else {
-  init();
+  initContent();
 }

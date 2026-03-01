@@ -49,6 +49,11 @@ async function render() {
     });
   });
 
+  document.getElementById("triage-link")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    chrome.tabs.create({ url: chrome.runtime.getURL("triage.html") });
+  });
+
   if (status.gatewayConfigured === false && document.getElementById("config-warning")) {
     (document.getElementById("config-warning") as HTMLElement).style.display = "block";
   }
