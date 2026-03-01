@@ -42,8 +42,11 @@ async function render() {
     await render();
   });
 
-  settingsLink?.addEventListener("click", () => {
-    chrome.runtime.openOptionsPage();
+  document.querySelectorAll(".open-options").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      chrome.runtime.openOptionsPage();
+    });
   });
 
   if (status.gatewayConfigured === false && document.getElementById("config-warning")) {
