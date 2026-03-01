@@ -1,0 +1,16 @@
+{
+  "name": "focusfeed",
+  "version": "1.0.0",
+  "description": "Omni browser extension — antivirus for the mind. Analyzes content with your chosen AI. Chrome & Android.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && node scripts/copy-assets.js",
+    "package": "npm run build && node scripts/package-chrome.js",
+    "icons": "node scripts/generate-icons.js"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "archiver": "^7.0.1",
+    "typescript": "^5.3.3"
+  }
+}

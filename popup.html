@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FocusFeed</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup">
+    <h1 class="title">FocusFeed</h1>
+    <p class="tagline">Antivirus for the mind</p>
+    <div class="row">
+      <label for="toggle">Enable analysis</label>
+      <input type="checkbox" id="toggle" checked />
+    </div>
+    <div id="config-warning" class="warning" style="display: none;">
+      Set your gateway URL and API key in <a href="#" id="settings-link">Options</a>.
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="label">Plan</span><span id="plan">—</span></div>
+      <div class="stat"><span class="label">Usage</span><span id="usage">—</span></div>
+      <div class="stat"><span class="label">Model</span><span id="model">—</span></div>
+    </div>
+    <div class="actions">
+      <a href="#" id="settings-link" class="link">Settings</a>
+      <a href="#" id="upgrade-link" class="link upgrade" style="display: none;">Upgrade to Paid</a>
+    </div>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

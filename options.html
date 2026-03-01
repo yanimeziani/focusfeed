@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FocusFeed — Options</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="page">
+    <h1>FocusFeed — Options</h1>
+    <section>
+      <h2>Cloud Gateway</h2>
+      <p class="note">Your data is sent to your configured gateway for analysis. We do not store page content.</p>
+      <label for="gateway-url">Gateway URL</label>
+      <input type="url" id="gateway-url" placeholder="https://api.focusfeed.app/v1" />
+      <label for="api-key">API key</label>
+      <input type="password" id="api-key" placeholder="Your gateway API key" autocomplete="off" />
+    </section>
+    <section>
+      <h2>Behavior</h2>
+      <div class="row">
+        <input type="checkbox" id="enabled" checked />
+        <label for="enabled">Enable content analysis</label>
+      </div>
+      <label for="model">Model (paid plan)</label>
+      <input type="text" id="model" placeholder="default or e.g. gpt-4o, claude-3" list="models" />
+      <datalist id="models">
+        <option value="default" />
+        <option value="gpt-4o" />
+        <option value="gpt-4o-mini" />
+        <option value="claude-3-5-sonnet" />
+        <option value="claude-3-haiku" />
+        <option value="llama-3.1-70b" />
+      </datalist>
+    </section>
+    <div class="actions">
+      <button type="button" id="save">Save</button>
+      <span id="save-status" aria-live="polite"></span>
+    </div>
+    <section class="compliance">
+      <h2>Regulations & Privacy</h2>
+      <p>FocusFeed is designed to conform with planetary regulations (GDPR, CCPA, and similar). Analysis runs via your chosen gateway; we do not log or retain the content you browse. See <a href="https://github.com/yanimeziani/focusfeed/blob/main/COMPLIANCE.md" target="_blank" rel="noopener">COMPLIANCE.md</a> for details.</p>
+    </section>
+  </div>
+  <script type="module" src="options.js"></script>
+</body>
+</html>
